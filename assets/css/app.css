@@ -1,0 +1,16 @@
+.chips>md-chips-wrap {
+	box-shadow: 0 0px !important;
+}
+
+.material-icons.dark_black {
+	color: #000000;
+}
+
+.small-font {
+	font-size: small;
+	color: #777;
+}
+
+.no-padding {
+	padding: 0px;
+}

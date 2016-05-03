@@ -1,0 +1,59 @@
+<md-toolbar class="md-primary md-hue-1">
+	<div class="md-toolbar-tools" layout="row" flex="grow">
+		<div flex="30">
+			<h2>Fingerprints</h2>
+		</div>
+		<div flex="auto"></div>
+		<md-button class="md-fab md-mini md-hue-2" flex="initial" aria-label="Add a new Description" data-ng-click="cc.create_description()">
+			<md-tooltip md-direction="left">
+				Add a new Description
+			</md-tooltip>
+			<i class="material-icons dark_black">add</i>
+		</md-button>
+		<span flex="nogrow">&nbsp;</span>
+	</div>
+</md-toolbar>
+
+<div data-ng-model="cc.data">
+	<md-whiteframe class="md-whiteframe-3dp" data-ng-repeat="item in cc.data" style="margin-top:20px; display: block;" layout-align="space-around center">
+		<div layout="column" flex="grow">
+			<div layout="row" layout-align="space-between center">
+				<md-chips class="chips">
+					<md-chip>{{item.total}}</md-chip>
+				</md-chips>
+				<div flex="auto md-padding">
+					{{item.description}}
+				</div>
+				<div flex="nogrow">
+					<md-button data-ng-click="cc.toggle_data_details(item)" class="pointer" layout layout-align="center end">
+						<i class="material-icons md-36 md-dark">
+							{{ item.is_visible ? "keyboard_arrow_up" : "keyboard_arrow_down" }}
+						</i>
+					</md-button>
+				</div>
+			</div>
+			<div layout="column" flex="auto" layout-align="center stretch" data-ng-show="item.is_visible" layout-padding>
+				<md-divider></md-divider>
+				<div layout="row" flex="auto" layout-align="end center">
+					<md-button class="md-raised md-primary" data-ng-disabled="!item.is_dirty" data-ng-click="cc.save_item($event, item)">save</md-button>
+					<md-button data-ng-click="cc.remove_item(item)" class="md-raised md-warn">delete</md-button>
+				</div>
+				<div layout="row" flex="auto" layout-align="start center">
+					<md-input-container flex="auto">
+						<label>Description</label>
+						<input data-ng-model="item.description" data-ng-change="cc.mark_item_dirty(item)"></input>
+					</md-input-container>
+					<md-input-container flex="auto">
+						<label>Fingerprint</label>
+						<input data-ng-model="item.fingerprint" data-ng-change="cc.mark_item_dirty(item)"></input>
+					</md-input-container>
+				</div>
+				<md-chips class="chips" ng-model="item.location" readonly="true">
+						<md-chip-template>
+							<span class="small-font">({{$chip.total}}) {{$chip.facility}}</span>
+						</md-chip-teamplate>
+				</md-chips>
+			</div>
+		</div>
+	</md-whiteframe>
+</div>

@@ -1,0 +1,35 @@
+<md-toolbar class="md-primary md-hue-1">
+	<div class="md-toolbar-tools" layout="row" flex="grow">
+		<div flex>
+			<h2>Crash Reports</h2>
+		</div>
+	</div>
+</md-toolbar>
+
+<div data-ng-model="cc.events">
+	<md-whiteframe class="md-whiteframe-3dp" data-ng-repeat="event in cc.events_raw" style="margin-top:20px; display: block;" layout-align="space-around center">
+		<div layout="column" flex="grow">
+			<div layout="row" layout-align="space-between center">
+				<div flex="auto" class="md-padding">
+					{{event.description}} <span class="small-font">({{event.fingerprint}})</span>
+				</div>
+				<div flex="nogrow">
+					<md-button ng-click="cc.toggle_event_details(event)" class="pointer" layout layout-align="center end">
+						<i class="material-icons md-36 md-dark">
+							{{ event.is_visible ? "keyboard_arrow_up" : "keyboard_arrow_down" }}
+						</i>
+					</md-button>
+				</div>
+			</div>
+			<div layout="column" flex="auto" layout-align="center stretch" ng-show="event.is_visible" layout-padding>
+				<md-divider></md-divider>
+				<md-list layout="row" class="small-font no-padding">
+					<md-list-item>Facility: {{event.facility}}</md-list-item>
+					<md-list-item>Unit: {{event.unit}}</md-list-item>
+					<md-list-item>Room: {{event.room}}</md-list-item>
+					<md-list-item>Bed: {{event.bed}}</md-list-item>
+				</md-list>
+			</div>
+		</div>
+	</md-whiteframe>
+</div>

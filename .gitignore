@@ -1,0 +1,4 @@
+recipes.sock
+venv
+*.pyc
+__pycache__

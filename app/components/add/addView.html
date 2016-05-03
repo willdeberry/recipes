@@ -1,0 +1,105 @@
+<md-toolbar class="md-whiteframe-z1">
+	<div class="md-toolbar-tools">
+		Add Recipe
+		<span flex></span>
+		<md-button class="md-fab md-mini" aria-label="add recipe" class="md-icon-button" data-ng-click="vm.saveRecipe()">
+			<md-tooltip md-direction="left">
+				Submit
+			</md-tooltip>
+			<i class="material-icons dark_black">add</i>
+		</md-button>
+	</div>
+</md-toolbar>
+<md-whiteframe class="md-whiteframe-3dp">
+	<form name="addRecipe">
+		<div layout="column" flex>
+			<div layout="row" layout-align="space-between">
+				<div layout="column" flex="50">
+					<div layout="row" layout-align="space-between">
+						<md-input-container class="md-block" flex="45">
+							<label>Name</label>
+							<input name="name" data-ng-model="vm.recipe.name"/>
+						</md-input-container>
+						<span flex></span>
+						<md-input-container flex="45">
+							<label>Description</label>
+							<textarea name="description" data-ng-model="vm.recipe.description"></textarea>
+						</md-input-container>
+					</div>
+					<div layout="row" layout-align="space-between">
+						<md-input-container class="md-block" flex="40">
+							<label>Course</label>
+							<md-select ng-model="vm.recipe.course">
+								<md-option ng-repeat="course in vm.courses" data-ng-value="course">
+									{{course}}
+								</md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container class="md-block" flex="25">
+							<label>Calories</label>
+							<input name="calories" type="number" data-ng-model="vm.recipe.calories"/>
+						</md-input-container>
+						<md-input-container class="md-block" flex="25">
+							<label>Servings</label>
+							<input name="servings" type="number" data-ng-model="vm.recipe.servings"/>
+						</md-input-container>
+					</div>
+					<div layout="row" layout-align="space-between">
+						<div flex="10" layout layout-align="center center">
+							<span class="md-body-1">Rating</span>
+						</div>
+						<md-slider md-discrete ng-model="vm.recipe.rating" step="1" min="1" max="5" aria-label="rating" flex="100"/>
+					</div>
+				</div>
+				<div layout="column" flex="50" layout-align="space-around center" layout-padding layout-margin>
+					<div id="previewContainer" class="md-whiteframe-3dp" layout-align="center center" flex="nogrow"></div>
+					<input type="file" data-ng-model="image" media-preview preview-container="previewContainer" data-ng-change="vm.recipe.image.push(image.base64)" base-sixty-four-input>
+				</div>
+			</div>
+			<div layout="row" layout-align="space-between">
+				<div layout="column" flex="45">
+					<div layout="row" layout-align="space-between">
+						<md-input-container class="md-block" flex="30">
+							<label>Amount</label>
+							<input name="amount" type="number" data-ng-model="ingredient.amount"/>
+						</md-input-container>
+						<md-input-container class="md-block" flex="30">
+							<label>Measurement</label>
+							<md-select ng-model="ingredient.measurement">
+								<md-option ng-repeat="measurement in vm.measurements" data-ng-value="measurement">
+									{{measurement}}
+								</md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container class="md-block" flex="35">
+							<label>Add Ingredient</label>
+							<input name="ingredient" type="text" data-ng-model="ingredient.name" flex="70"/>
+							<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.updateIngredients(ingredient)" flex="20">
+								<i class="material-icons">library_add</i>
+							</md-button>
+						</md-input-container>
+					</div>
+					<md-list>
+						<md-list-item ng-repeat="ingredient in vm.recipe.ingredients track by $index">
+							{{ingredient.amount}} {{ingredient.measurement}} of {{ingredient.name}}
+						</md-list-item>
+					</md-list>
+				</div>
+				<div layout="column" flex="45">
+					<md-input-container flex="auto">
+						<label>Add Instruction</label>
+						<input name="instruction" type="text" data-ng-model="instruction" flex="90"/>
+						<md-button aria-label="instruction" class="md-icon-button" data-ng-click="vm.updateList('instructions', instruction)" flex="10">
+							<i class="material-icons">library_add</i>
+						</md-button>
+					</md-input-container>
+					<md-list>
+						<md-list-item ng-repeat="instruction in vm.recipe.instructions track by $index">
+							{{instruction}}
+						</md-list-item>
+					</md-list>
+				</div>
+			</div>
+		</div>
+	</form>
+</md-whiteframe>

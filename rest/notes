@@ -1,0 +1,30 @@
+{
+	"_id" : ObjectId("563eeb9ed763c12e08a0a4c3"),
+	"name" : "Crab Rangoon Dip",
+	"style" : "Asian",
+	"img" : null,
+	"description" : "Bullshit ass food",
+	"source" : "interwebs",
+	"calories" : 9000,
+	"serving" : 2,
+	"lava" : 30,
+	"instructions" : [
+		"First, soften the cream cheese in the microwave for about a minute.",
+		"Chop your green onions. Add them and your two cups of crab meat .",
+		"Add the sour cream, Wosterschire sauce, powdered sugar, garlic powder and lemon juice.",
+		"Mix all the ingredients and bake for 30 mins at 350 degrees. Serve hot with chips or fried wontons or pork rinds."
+	],
+	"ingredients" : [
+		"2 cups crab meat",
+		"16 oz. cream cheese (2 blocks)",
+		"1/2 cup sour cream",
+		"1/2 cup sour cream",
+		"1 1/2 tsp. Worcestershire sauce",
+		"2 Tbsp powdered sugar",
+		"1/2 tsp garlic powder",
+		"1/2 tsp lemon juice"
+	],
+	"rating" : 4,
+	"notes" : "Rob is awesome!"
+}
+
