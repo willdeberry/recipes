@@ -61,7 +61,7 @@
 					<div layout="row" layout-align="space-between">
 						<md-input-container class="md-block" flex="30">
 							<label>Amount</label>
-							<input name="amount" type="number" data-ng-model="ingredient.amount"/>
+							<input name="amount" type="number" step="0.01" min="0" data-ng-model="ingredient.amount"/>
 						</md-input-container>
 						<md-input-container class="md-block" flex="30">
 							<label>Measurement</label>
@@ -82,6 +82,9 @@
 					<md-list>
 						<md-list-item ng-repeat="ingredient in vm.recipe.ingredients track by $index">
 							{{ingredient.amount}} {{ingredient.measurement}} of {{ingredient.name}}
+							<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.removeIngredients($index)" flex="20">
+								<i class="material-icons">delete</i>
+							</md-button>
 						</md-list-item>
 					</md-list>
 				</div>

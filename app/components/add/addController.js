@@ -50,6 +50,10 @@
 			$scope.ingredient.name = '';
 		}
 
+		vm.removeIngredients = function(index) {
+			vm.recipe.ingredients.splice(index, 1);
+		}
+
 		vm.updateList = function(name, item) {
 			vm.recipe[name].push(item);
 			$scope.instruction = '';
