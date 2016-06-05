@@ -8,27 +8,20 @@
 		<link rel="stylesheet" href="assets/css/add.css">
 	</head>
 	<body>
-		<div layout="row" layout-fill>
-			<md-content flex layout="column" role="main" class="md-whiteframe-z2">
-				<md-toolbar class="md-whiteframe-z1">
-					<div class="md-toolbar-tools">
-						Recipe Collector
-						<span flex></span>
-						<md-button aria-label="list" class="md-icon-button" ui-sref="list">
-							<md-tooltip md-direction="down">
-								Show Recipes
-							</md-tooltip>
-							<i class="material-icons">list</i>
-						</md-button>
-						<md-button aria-label="add" class="md-icon-button" ui-sref="add">
-							<md-tooltip md-direction="down">
-								Add Recipe
-							</md-tooltip>
-							<i class="material-icons">add_box</i>
-						</md-button>
-					</div>
-				</md-toolbar>
-				<div layout="column" layout-margin layout-padding>
+		<div layout="column" layout-fill ng-controller="appController as vm">
+			<md-content flex role="main" class="md-whiteframe-z2">
+				<div layout="row">
+					<md-toolbar class="md-whiteframe-z1">
+						<div class="md-toolbar-tools">
+							<h1>Sudo Recipes</h1>
+						</div>
+						<md-tabs md-selected="vm.selectedIndex">
+							<md-tab label="Show Recipes"></md-tab>
+							<md-tab label="Add Recipe"></md-tab>
+						</md-tabs>
+					</md-toolbar>
+				</div>
+				<div layout-margin layout-padding>
 					<md-content id="content" ui-view></md-content>
 				</div>
 			</md-content>
@@ -43,7 +36,6 @@
 	<script src="app/components/add/addController.js"></script>
 	<script src="app/components/add/addService.js"></script>
 	<script src="app/app.router.js"></script>
-	<script src="assets/js/angular-base64.min.js"></script>
 	<script src="assets/js/angular-media-preview.module.js"></script>
 	<script src="assets/js/angular-base64-upload.min.js"></script>
 </html>

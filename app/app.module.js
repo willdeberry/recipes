@@ -8,5 +8,22 @@
 				.primaryPalette('teal')
 				.accentPalette('amber');
 		})
+		.controller('appController', appController);
 
+	appController.$inject = ['$scope', '$location'];
+
+	function appController($scope, $location) {
+		var vm = this;
+		vm.selectedIndex = 0;
+		$scope.$watch('vm.selectedIndex', function(current, old) {
+			switch (current) {
+				case 0:
+					$location.url('/list');
+					break;
+				case 1:
+					$location.url('/add');
+					break;
+			}
+		});
+	}
 })();
