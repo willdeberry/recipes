@@ -2,16 +2,12 @@
 	'use strict';
 
 	angular
-		.module('add', ['base64', 'angular-media-preview', 'naif.base64'] )
-		.controller('addController', [
-				'$scope',
-				'$base64',
-				'addService',
-				addController
-		]);
+		.module('add', ['angular-media-preview', 'naif.base64'] )
+		.controller('addController', addController);
 
+	addController.$inject = ['$scope', 'addService'];
 
-	function addController($scope, $base64, addService) {
+	function addController($scope, addService) {
 		var vm = this;
 		vm.courses = ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
 		vm.measurements = ['tsp', 'tbsp', 'cup', 'fl oz', 'pt', 'qt', 'gal', 'oz', 'lb'];

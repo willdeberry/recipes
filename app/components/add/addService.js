@@ -1,11 +1,11 @@
 (function() {
 	'use strict';
 
-	angular.module('add')
-		.service('addService', [
-				'$http',
-				addService
-		]);
+	angular
+		.module('add')
+		.service('addService', addService);
+
+	addService.$inject = ['$http'];
 
 	function addService($http) {
 		return {
