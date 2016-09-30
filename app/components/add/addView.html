@@ -81,7 +81,7 @@
 					</div>
 					<md-list>
 						<md-list-item ng-repeat="ingredient in vm.recipe.ingredients track by $index">
-							{{ingredient.amount}} {{ingredient.measurement}} of {{ingredient.name}}
+							{{ingredient.amount}} {{ingredient.measurement}} {{ingredient.name}}
 							<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.removeIngredients($index)" flex="20">
 								<i class="material-icons">delete</i>
 							</md-button>
