@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('app', ['ngMaterial', 'ui.router', 'add'] )
+		.module('app', ['ngMaterial', 'ui.router', 'add', 'list'] )
 		.config(function($mdThemingProvider) {
 			$mdThemingProvider.theme('default')
 				.primaryPalette('teal')

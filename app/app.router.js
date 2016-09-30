@@ -7,7 +7,9 @@
 			$stateProvider
 				.state('list', {
 					url: '/list',
-					templateUrl: 'app/components/list/listView.html'
+					templateUrl: 'app/components/list/listView.html',
+					controller: 'listController',
+					controllerAs: 'vm'
 				})
 				.state('add', {
 					url: '/add',
