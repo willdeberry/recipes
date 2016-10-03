@@ -1,0 +1,37 @@
+<md-dialog aria-label="{{recipe.name}}">
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>{{recipe.name}}</h2>
+				<span flex></span>
+				<md-button class="md-icon-button" ng-click="cancel()">
+					<md-icon aria-label="Close dialog"><i class="material-icons">close</i></md-icon>
+				</md-button>
+			</div>
+		</md-toolbar>
+		<md-dialog-content style="max-width:800px;max-height:810px; ">
+			<md-tabs md-dynamic-height md-border-bottom>
+				<md-tab label="Ingredients">
+					<md-content class="md-padding">
+						<md-list flex>
+							<div layout="row" layout-wrap  layout-sm="column">
+								<md-list-item flex="33" class="md-2-line" ng-repeat="ingredient in recipe.ingredients">
+									<div class="md-list-item-text">
+										<h3>{{ingredient.name}}</h3>
+										<p>{{ingredient.amount}} {{ingredient.measurement}}</p>
+									</div>
+								</md-list-item>
+							</div>
+					</md-content>
+				</md-tab>
+				<md-tab label="Instructions">
+					<md-content class="md-padding">
+						<ol>
+							<li ng-repeat="instruction in recipe.instructions">{{instruction}}</li>
+						</ol>
+					</md-content>
+				</md-tab>
+			</md-tabs>
+		</md-dialog-content>
+  </form>
+</md-dialog>
