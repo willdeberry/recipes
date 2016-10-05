@@ -15,16 +15,25 @@
 			vm.recipes = response.data.message;
 		});
 
-		vm.showAll = function(recipe) {
+		vm.show = function(recipe) {
 			$mdDialog.show({
 				locals: {recipe: recipe},
-				controller: recipeController,
+				controller: dialogController,
 				clickOutsideToClose: true,
 				templateUrl: 'app/components/list/recipeView.html'
 			});
 		}
 
-		function recipeController($scope, $mdDialog, recipe) {
+		vm.edit = function(recipe) {
+			$md.Dialog.show({
+				locals: {recipe: recipe},
+				controller: dialogController,
+				clickOutsideToClose: true,
+				templateUrl: 'app/components/list/editView.html'
+			});
+		}
+
+		function dialogController($scope, $mdDialog, recipe) {
 			$scope.recipe = recipe;
 
 			$scope.cancel = function() {
