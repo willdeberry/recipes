@@ -10,7 +10,7 @@
 	function addController($scope, addService) {
 		var vm = this;
 		vm.courses = ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
-		vm.measurements = ['tsp', 'tbsp', 'cup', 'fl oz', 'pt', 'qt', 'gal', 'oz', 'lb'];
+		vm.measurements = ['tsp', 'tbsp', 'cup', 'fl oz', 'pt', 'qt', 'gal', 'oz', 'lb', 'drops', 'pinch'];
 		vm.image = null;
 		vm.recipe = {};
 		vm.recipe.name = null;
