@@ -1,7 +1,7 @@
 <div ng-cloak>
-	<md-content class="md-padding" layout-xs="column" layout="row">
-		<div flex-xs flex-gt-xs="33" layout="column">
-			<md-card ng-repeat="recipe in vm.recipes">
+	<md-content class="md-padding" layout="row">
+		<div layout="row">
+			<md-card flex-xs flex-gt-xs="25" ng-repeat="recipe in vm.recipes">
 				<img ng-src="data:image/png;base64,{{recipe.image[1]}}" class="md-card-image md-image-no-fill">
 				<md-card-title>
 					<md-card-title-text>
