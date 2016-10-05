@@ -9,7 +9,7 @@ app = Flask( __name__ )
 app.config['MAX_CONTENT_LENGTH'] = 16777216
 
 api = Api( app )
-api.add_resource( Recipes, '/rp/recipes' )
+api.add_resource( Recipes, '/recipes' )
 
 Statics.mongo_client = MongoClient( connect = False )
 Statics.db = Statics.mongo_client['recipes']
