@@ -1,0 +1,109 @@
+<md-dialog aria-label="{{recipe.name}}">
+	<md-toolbar class="md-whiteframe-z1">
+		<div class="md-toolbar-tools">
+			<h2>{{recipe.name}}</h2>
+			<span flex></span>
+			<md-button class="md-fab md-mini" aria-label="add recipe" class="md-icon-button" data-ng-click="vm.saveRecipe()">
+				<md-tooltip md-direction="left">
+					Submit
+				</md-tooltip>
+				<i class="material-icons dark_black">add</i>
+			</md-button>
+			<md-button class="md-icon-button" ng-click="cancel()">
+				<md-icon aria-label="Close dialog"><i class="material-icons">close</i></md-icon>
+			</md-button>
+		</div>
+	</md-toolbar>
+	<md-whiteframe class="md-whiteframe-3dp">
+		<form name="addRecipe">
+			<div layout="column" flex>
+				<div layout="row" layout-align="space-between">
+					<div layout="row" layout-align="space-between" flex="50">
+						<md-input-container class="md-block" flex="45">
+							<label>Name</label>
+							<input name="name" data-ng-model="recipe.name"/>
+						</md-input-container>
+						<span flex></span>
+						<md-input-container flex="45">
+							<label>Description</label>
+							<textarea name="description" data-ng-model="recipe.description"></textarea>
+						</md-input-container>
+					</div>
+					<div layout="row" layout-align="space-between" flex="50">
+						<md-input-container class="md-block" flex="40">
+							<label>Course</label>
+							<md-select ng-model="courses">
+								<md-option ng-repeat="course in courses" data-ng-value="recipe.course">
+									{{course}}
+								</md-option>
+							</md-select>
+						</md-input-container>
+						<md-input-container class="md-block" flex="25">
+							<label>Calories</label>
+							<input name="calories" type="number" data-ng-model="recipe.calories"/>
+						</md-input-container>
+						<md-input-container class="md-block" flex="25">
+							<label>Servings</label>
+							<input name="servings" type="number" data-ng-model="recipe.servings"/>
+						</md-input-container>
+					</div>
+				</div>
+				<div layout layout-align="center center">
+					<span class="md-body-1" flex="10">Rating</span>
+					<md-slider md-discrete ng-model="recipe.rating" step="1" min="1" max="5" aria-label="rating" flex="90"/>
+				</div>
+				<div layout="row" layout-align="space-between">
+					<div layout-align="space-between" flex="45">
+						<div layout="column">
+							<div layout="row" layout-align="space-between">
+								<md-input-container class="md-block" flex="25">
+									<label>Amount</label>
+									<input name="amount" type="number" step="0.01" min="0" data-ng-model="ingredient.amount"/>
+								</md-input-container>
+								<md-input-container class="md-block" flex="30">
+									<label>Measurement</label>
+									<md-select ng-model="ingredient.measurement">
+										<md-option ng-repeat="measurement in measurements" data-ng-value="measurement">
+											{{measurement}}
+										</md-option>
+									</md-select>
+								</md-input-container>
+								<md-input-container class="md-block" flex="40">
+									<label>Ingredient</label>
+									<input name="ingredient" type="text" data-ng-model="ingredient.name" flex="65"/>
+									<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.updateIngredients(ingredient)" flex="25">
+										<i class="material-icons">library_add</i>
+									</md-button>
+								</md-input-container>
+							</div>
+							<md-list>
+								<md-list-item ng-repeat="ingredient in recipe.ingredients track by $index">
+									<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="removeIngredients($index)" flex="20">
+										<i class="material-icons">delete</i>
+									</md-button>
+									{{ingredient.amount}} {{ingredient.measurement}} {{ingredient.name}}
+								</md-list-item>
+							</md-list>
+						</div>
+					</div>
+					<div layout-align="space-between" flex="45">
+						<div layout="column">
+							<md-input-container flex="auto">
+								<label>Add Instruction</label>
+								<input name="instruction" type="text" data-ng-model="instruction" flex="85"/>
+								<md-button aria-label="instruction" class="md-icon-button" data-ng-click="updateList('instructions', instruction)" flex="10">
+									<i class="material-icons">library_add</i>
+								</md-button>
+							</md-input-container>
+							<div ng-repeat="instruction in recipe.instructions track by $index">
+								<md-input-container class="md-block">
+									<input ng-model="instruction"/>
+								</md-input-container>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</md-whiteframe>
+</md-dialog>

@@ -25,7 +25,7 @@
 		}
 
 		vm.edit = function(recipe) {
-			$md.Dialog.show({
+			$mdDialog.show({
 				locals: {recipe: recipe},
 				controller: dialogController,
 				clickOutsideToClose: true,
@@ -35,6 +35,8 @@
 
 		function dialogController($scope, $mdDialog, recipe) {
 			$scope.recipe = recipe;
+			$scope.courses = ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
+			$scope.measurements = ['tsp', 'tbsp', 'cup', 'fl oz', 'pt', 'qt', 'gal', 'oz', 'lb', 'drops', 'pinch', 'large', 'medium', 'small', 'thick', 'thin'];
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
