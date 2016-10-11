@@ -10,11 +10,12 @@
 		})
 		.controller('appController', appController);
 
-	appController.$inject = ['$scope', '$location'];
+	appController.$inject = ['$scope', '$location', 'appService'];
 
-	function appController($scope, $location) {
+	function appController($scope, $location, appService) {
 		var vm = this;
 		vm.selectedIndex = 0;
+
 		$scope.$watch('vm.selectedIndex', function(current, old) {
 			switch (current) {
 				case 0:
@@ -25,5 +26,7 @@
 					break;
 			}
 		});
+
+		vm.postRecipe = appService.postRecipe;
 	}
 })();

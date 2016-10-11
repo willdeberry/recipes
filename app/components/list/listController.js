@@ -35,8 +35,6 @@
 
 		function dialogController($scope, $mdDialog, recipe) {
 			$scope.recipe = recipe;
-			$scope.courses = ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
-			$scope.measurements = ['tsp', 'tbsp', 'cup', 'fl oz', 'pt', 'qt', 'gal', 'oz', 'lb', 'drops', 'pinch', 'large', 'medium', 'small', 'thick', 'thin'];
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
