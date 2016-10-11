@@ -1,5 +1,5 @@
 <md-dialog aria-label="{{recipe.name}}">
-	<md-toolbar class="md-whiteframe-z1">
+	<md-toolbar>
 		<div class="md-toolbar-tools">
 			<h2>{{recipe.name}}</h2>
 			<span flex></span>
@@ -14,7 +14,7 @@
 			</md-button>
 		</div>
 	</md-toolbar>
-	<md-whiteframe class="md-whiteframe-3dp">
+	<md-dialog-content style="max-width:800px;max-height:810px; ">
 		<form name="addRecipe">
 			<div layout="column" flex>
 				<div layout="row" layout-align="space-between">
@@ -105,5 +105,5 @@
 				</div>
 			</div>
 		</form>
-	</md-whiteframe>
+	</md-dialog-content>
 </md-dialog>

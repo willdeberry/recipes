@@ -58,49 +58,16 @@
 			</div>
 			<div layout="row" layout-align="space-between">
 				<div layout="column" flex="45">
-					<div layout="row" layout-align="space-between">
-						<md-input-container class="md-block" flex="30">
-							<label>Amount</label>
-							<input name="amount" type="number" step="0.01" min="0" data-ng-model="ingredient.amount"/>
-						</md-input-container>
-						<md-input-container class="md-block" flex="30">
-							<label>Measurement</label>
-							<md-select ng-model="ingredient.measurement">
-								<md-option ng-repeat="measurement in vm.measurements" data-ng-value="measurement">
-									{{measurement}}
-								</md-option>
-							</md-select>
-						</md-input-container>
-						<md-input-container class="md-block" flex="35">
-							<label>Add Ingredient</label>
-							<input name="ingredient" type="text" data-ng-model="ingredient.name" flex="70"/>
-							<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.updateIngredients(ingredient)" flex="20">
-								<i class="material-icons">library_add</i>
-							</md-button>
-						</md-input-container>
-					</div>
-					<md-list>
-						<md-list-item ng-repeat="ingredient in vm.recipe.ingredients track by $index">
-							{{ingredient.amount}} {{ingredient.measurement}} {{ingredient.name}}
-							<md-button aria-label="ingredient" class="md-icon-button" data-ng-click="vm.removeIngredients($index)" flex="20">
-								<i class="material-icons">delete</i>
-							</md-button>
-						</md-list-item>
-					</md-list>
+					<md-input-container>
+						<label>Ingredients</label>
+						<textarea data-ng-model="vm.recipe.ingredients" cols="20" rows="2" placeholder="Put each ingredient on its own line."></textarea>
+					</md-input-container>
 				</div>
 				<div layout="column" flex="45">
-					<md-input-container flex="auto">
-						<label>Add Instruction</label>
-						<input name="instruction" type="text" data-ng-model="instruction" flex="90"/>
-						<md-button aria-label="instruction" class="md-icon-button" data-ng-click="vm.updateList('instructions', instruction)" flex="10">
-							<i class="material-icons">library_add</i>
-						</md-button>
+					<md-input-container>
+						<label>Instructions</label>
+						<textarea data-ng-model="vm.recipe.instructions" cols="20" rows="2" placeholder="Put each step on its own line."></textarea>
 					</md-input-container>
-					<md-list>
-						<md-list-item ng-repeat="instruction in vm.recipe.instructions track by $index">
-							{{instruction}}
-						</md-list-item>
-					</md-list>
 				</div>
 			</div>
 		</div>

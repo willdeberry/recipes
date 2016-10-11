@@ -18,8 +18,8 @@
 		vm.recipe.description = null;
 		vm.recipe.calories = null;
 		vm.recipe.servings = null;
-		vm.recipe.instructions = [];
-		vm.recipe.ingredients = [];
+		vm.recipe.instructions = null;
+		vm.recipe.ingredients = null;
 		vm.recipe.rating = null;
 		vm.recipe.image = [];
 
@@ -28,32 +28,9 @@
 				vm.recipe = {};
 				var imageDiv = angular.element( document.querySelector( '#previewContainer' ) );
 				imageDiv.empty();
-				$scope.instruction = '';
-				$scope.ingredient = '';
 				$scope.addRecipe.$setPristine(true);
 				$scope.addRecipe.$setUntouched(true);
 			});
 		}
-
-		vm.updateIngredients = function(ingredient) {
-			vm.recipe.ingredients.push({
-				'name': ingredient.name,
-				'amount': ingredient.amount,
-				'measurement': ingredient.measurement
-			});
-			$scope.ingredient.amount = '';
-			$scope.ingredient.measurement = '';
-			$scope.ingredient.name = '';
-		}
-
-		vm.removeIngredients = function(index) {
-			vm.recipe.ingredients.splice(index, 1);
-		}
-
-		vm.updateList = function(name, item) {
-			vm.recipe[name].push(item);
-			$scope.instruction = '';
-		}
 	}
-
 })();
