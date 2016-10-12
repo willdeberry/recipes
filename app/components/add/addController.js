@@ -5,9 +5,9 @@
 		.module('add', ['angular-media-preview', 'naif.base64'] )
 		.controller('addController', addController);
 
-	addController.$inject = ['$scope', 'addService', 'appService'];
+	addController.$inject = ['$scope', 'appService'];
 
-	function addController($scope, addService, appService) {
+	function addController($scope, appService) {
 		var vm = this;
 		vm.courses = appService.courses;
 		vm.image = null;
