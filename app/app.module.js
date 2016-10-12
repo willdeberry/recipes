@@ -26,7 +26,5 @@
 					break;
 			}
 		});
-
-		vm.postRecipe = appService.postRecipe;
 	}
 })();

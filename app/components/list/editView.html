@@ -1,9 +1,9 @@
-<md-dialog aria-label="{{recipe.name}}">
+<md-dialog aria-label="{{recipe.name}}" flex="50">
 	<md-toolbar>
 		<div class="md-toolbar-tools">
 			<h2>{{recipe.name}}</h2>
 			<span flex></span>
-			<md-button class="md-fab md-mini" aria-label="update recipe" class="md-icon-button" data-ng-click="postRecipe()">
+			<md-button class="md-fab md-mini" aria-label="update recipe" class="md-icon-button" data-ng-click="postRecipe(recipe)">
 				<md-tooltip md-direction="left">
 					Submit
 				</md-tooltip>
@@ -60,17 +60,17 @@
 				</md-tab>
 				<md-tab label="Ingredients">
 					<md-content class="md-padding">
-						<md-input-container>
+						<md-input-container class="md-block">
 							<label>Ingredients</label>
-							<textarea data-ng-model="recipe.ingredients" cols="20" rows="2" placeholder="Put each ingredient on its own line."></textarea>
+							<textarea data-ng-model="recipe.ingredients" placeholder="Put each ingredient on its own line."></textarea>
 						</md-input-container>
 					</md-content>
 				</md-tab>
 				<md-tab label="Instructions">
 					<md-content class="md-padding">
-						<md-input-container>
+						<md-input-container class="md-block">
 							<label>Instructions</label>
-							<textarea data-ng-model="recipe.instructions" cols="20" rows="2" placeholder="Put each step on its own line."></textarea>
+							<textarea data-ng-model="recipe.instructions" placeholder="Put each step on its own line."></textarea>
 						</md-input-container>
 					</md-content>
 				</md-tab>

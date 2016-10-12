@@ -1,6 +1,7 @@
 from flask import json, request, Response
 from flask_restful import Resource
 from bson.json_util import dumps
+from bson.objectid import ObjectId
 
 from statics import Statics
 
@@ -27,7 +28,14 @@ class Recipes(Resource):
 		data = json.loads(request.data)
 
 		if data:
-			new_doc = Statics.recipes.insert(data)
+			if '_id' not in data:
+				new_doc = Statics.recipes.insert(data)
+			else:
+				data_id = data['_id']['$oid']
+				excludes = {'_id'}
+				resultset = {x: data[x] for x in data if x not in excludes}
+				new_doc = Statics.recipes.update({'_id': ObjectId(data['_id']['$oid'])}, {"$set": resultset}, upsert = False)
+
 			self.status['message'] = 'New recipe added to the database'
 			self.status['status'] = Statics.RET_OK
 			self.status['new_id'] = str(new_doc)

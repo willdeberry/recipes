@@ -16,6 +16,9 @@
 					headers: {'Content-Type': 'application/json'},
 					data: recipe
 				});
+			},
+			courses: function() {
+				return ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
 			}
 		}
 	}
