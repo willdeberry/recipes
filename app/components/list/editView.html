@@ -68,7 +68,7 @@
 					<md-content class="md-padding">
 						<md-input-container class="md-block">
 							<label>Ingredients</label>
-							<textarea data-ng-model="recipe.ingredients" placeholder="Put each ingredient on its own line."></textarea>
+							<textarea data-ng-model="recipe.ingredients" placeholder="Put each ingredient on its own line." data-ng-list="&#10;" data-ng-trim="false"></textarea>
 						</md-input-container>
 					</md-content>
 				</md-tab>
@@ -76,7 +76,7 @@
 					<md-content class="md-padding">
 						<md-input-container class="md-block">
 							<label>Instructions</label>
-							<textarea data-ng-model="recipe.instructions" placeholder="Put each step on its own line."></textarea>
+							<textarea data-ng-model="recipe.instructions" placeholder="Put each step on its own line." data-ng-list="&#10;" data-ng-trim="false"></textarea>
 						</md-input-container>
 					</md-content>
 				</md-tab>

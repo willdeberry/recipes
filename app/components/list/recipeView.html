@@ -14,20 +14,20 @@
 				<md-content class="md-padding">
 					<md-list flex>
 						<div layout="row" layout-wrap  layout-sm="column">
-							<md-list-item flex="33" class="md-2-line" ng-repeat="ingredient in recipe.ingredients">
-								<div class="md-list-item-text">
-									<h3>{{ingredient.name}}</h3>
-									<p>{{ingredient.amount}} {{ingredient.measurement}}</p>
-								</div>
+							<md-list-item flex="33" data-ng-click="null" data-ng-repeat="ingredient in recipe.ingredients">
+								<span>{{ingredient}}</span>
 							</md-list-item>
 						</div>
+					</md-list>
 				</md-content>
 			</md-tab>
 			<md-tab label="Instructions">
 				<md-content class="md-padding">
-					<ol>
-						<li ng-repeat="instruction in recipe.instructions">{{instruction}}</li>
-					</ol>
+					<md-list>
+						<md-list-item data-ng-click="null" data-ng-repeat="instruction in recipe.instructions">
+							<span>{{instruction}}</span>
+						</md-list-item>
+					</md-list>
 				</md-content>
 			</md-tab>
 		</md-tabs>
