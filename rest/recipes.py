@@ -1,5 +1,5 @@
 from flask import json, request, Response
-from flask_restful import Resource
+from flask_restful import Resource, reqparse
 from bson.json_util import dumps
 from bson.objectid import ObjectId
 
@@ -8,6 +8,9 @@ from statics import Statics
 
 class Recipes(Resource):
 	def __init__(self):
+		self.deleteparse = reqparse.RequestParser()
+		self.deleteparse.add_argument( 'id', type = str, required = True, help = 'You must provide the db ID to remove' )
+
 		self.status = {'message': None, 'status': Statics.RET_ERR}
 		super().__init__()
 
@@ -43,3 +46,14 @@ class Recipes(Resource):
 		return Response(dumps(self.status), mimetype='application/json')
 
 		return resp
+
+	def delete(self):
+		args = self.deleteparse.parse_args()
+		item_id = args['id']
+
+		if Statics.recipes.find_one({'_id': ObjectId(item_id)}):
+			self.status['message'] = 'Id ({}) removed from the database'.format(item_id)
+			self.status['code'] = Statics.RET_OK
+			Statics.recipes.remove({'_id': ObjectId(item_id)})
+
+		return Response(dumps(self.status), mimetype='application/json')

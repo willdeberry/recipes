@@ -3,7 +3,13 @@
 		<div class="md-toolbar-tools">
 			<h2>{{recipe.name}}</h2>
 			<span flex></span>
-			<md-button class="md-fab md-mini" aria-label="update recipe" class="md-icon-button" data-ng-click="postRecipe(recipe)">
+			<md-button class="md-fab md-mini md-warn" aria-label="delete recipe" data-ng-click="deleteRecipe()">
+				<md-tooltip md-direction="left">
+					Delete
+				</md-tooltip>
+				<i class="material-icons dark_black">delete</i>
+			</md-button>
+			<md-button class="md-fab md-mini" aria-label="update recipe" data-ng-click="postRecipe()">
 				<md-tooltip md-direction="left">
 					Submit
 				</md-tooltip>

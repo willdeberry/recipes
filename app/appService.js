@@ -17,6 +17,12 @@
 					data: recipe
 				});
 			},
+			deleteRecipe: function(id) {
+				return $http({
+					method: 'DELETE',
+					url: '/rp/recipes?id=' + id
+				});
+			},
 			courses: function() {
 				return ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
 			}

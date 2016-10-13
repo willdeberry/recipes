@@ -38,10 +38,14 @@
 
 			$scope.cancel = function() {
 				$mdDialog.cancel();
-			};
+			}
 
-			$scope.postRecipe = function(editedRecipe) {
+			$scope.postRecipe = function() {
 				appService.postRecipe(recipe);
+			}
+
+			$scope.deleteRecipe = function() {
+				appService.deleteRecipe(recipe._id.$oid);
 			}
 
 			$scope.courses = appService.courses();
