@@ -41,10 +41,14 @@
 			}
 
 			$scope.postRecipe = function() {
+				$mdDialog.cancel();
 				appService.postRecipe(recipe);
 			}
 
 			$scope.deleteRecipe = function() {
+				var index = vm.recipes.indexOf(recipe);
+				vm.recipes.splice(index, 1);
+				$mdDialog.cancel();
 				appService.deleteRecipe(recipe._id.$oid);
 			}
 
