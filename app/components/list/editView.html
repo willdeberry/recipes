@@ -11,9 +11,9 @@
 			</md-button>
 			<md-button class="md-fab md-mini" aria-label="update recipe" data-ng-click="postRecipe()">
 				<md-tooltip md-direction="left">
-					Submit
+					Save
 				</md-tooltip>
-				<i class="material-icons dark_black">add</i>
+				<i class="material-icons dark_black">save</i>
 			</md-button>
 			<md-button class="md-icon-button" ng-click="cancel()">
 				<md-icon aria-label="Close dialog"><i class="material-icons">close</i></md-icon>
@@ -41,7 +41,7 @@
 								<md-input-container class="md-block" flex="40">
 									<label>Course</label>
 									<md-select ng-model="recipe.course">
-										<md-option ng-repeat="course in courses" data-ng-value="recipe.course">
+										<md-option ng-repeat="course in courses" data-ng-value="course">
 											{{course}}
 										</md-option>
 									</md-select>

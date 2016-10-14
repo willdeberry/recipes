@@ -9,7 +9,7 @@
 
 	function addController($scope, appService) {
 		var vm = this;
-		vm.courses = appService.courses;
+		vm.courses = appService.courses();
 		vm.image = null;
 		vm.recipe = {};
 		vm.recipe.name = null;
