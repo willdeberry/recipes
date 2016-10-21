@@ -1,8 +1,8 @@
 <div ng-cloak>
 	<md-content class="md-padding" layout="row">
-		<div layout="row" layout-wrap  layout-sm="column">
-			<md-card flex-xs flex-gt-xs="20" ng-repeat="recipe in vm.recipes">
-				<img ng-src="data:image/png;base64,{{recipe.image[1]}}" class="md-card-image md-image-no-fill">
+		<div layout="row" layout-wrap>
+			<md-card ng-repeat="recipe in vm.recipes">
+				<img ng-src="data:image/png;base64,{{recipe.image[1]}}" class="md-card-image center-cropped">
 				<div layout="column">
 					<div>
 						<md-card-title>
@@ -16,15 +16,17 @@
 							{{recipe.description}}
 						</md-card-content>
 					</div>
+					<div>
+						<md-card-actions layout="row" layout-align="end center">
+							<md-button class="md-icon-button" aria-label="show_more" ng-click="vm.show(recipe)">
+								<md-icon><i class="material-icons">expand_more</i></md-icon>
+							</md-button>
+							<md-button class="md-icon-button" aria-label="Edit" ng-click="vm.edit(recipe)">
+								<md-icon><i class="material-icons">edit</i></md-icon>
+							</md-button>
+						</md-card-actions>
+					</div>
 				</div>
-				<md-card-actions layout="row" layout-align="end center">
-					<md-button class="md-icon-button" aria-label="show_more" ng-click="vm.show(recipe)">
-						<md-icon><i class="material-icons">expand_more</i></md-icon>
-					</md-button>
-					<md-button class="md-icon-button" aria-label="Edit" ng-click="vm.edit(recipe)">
-						<md-icon><i class="material-icons">edit</i></md-icon>
-					</md-button>
-				</md-card-actions>
 			</md-card>
 		</div>
 	</md-content>
