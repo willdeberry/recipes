@@ -20,14 +20,7 @@
 							<label>Name</label>
 							<input name="name" data-ng-model="vm.recipe.name"/>
 						</md-input-container>
-						<span flex></span>
-						<md-input-container flex="45">
-							<label>Description</label>
-							<textarea name="description" data-ng-model="vm.recipe.description"></textarea>
-						</md-input-container>
-					</div>
-					<div layout="row" layout-align="space-between">
-						<md-input-container class="md-block" flex="40">
+						<md-input-container class="md-block" flex="30">
 							<label>Course</label>
 							<md-select ng-model="vm.recipe.course">
 								<md-option ng-repeat="course in vm.courses" data-ng-value="course">
@@ -35,13 +28,15 @@
 								</md-option>
 							</md-select>
 						</md-input-container>
-						<md-input-container class="md-block" flex="25">
-							<label>Calories</label>
-							<input name="calories" type="number" data-ng-model="vm.recipe.calories"/>
-						</md-input-container>
-						<md-input-container class="md-block" flex="25">
+						<md-input-container class="md-block" flex="15">
 							<label>Servings</label>
 							<input name="servings" type="number" data-ng-model="vm.recipe.servings"/>
+						</md-input-container>
+					</div>
+					<div layout="row" layout-align="space-between">
+						<md-input-container flex>
+							<label>Description</label>
+							<textarea name="description" data-ng-model="vm.recipe.description"></textarea>
 						</md-input-container>
 					</div>
 				</div>
@@ -57,7 +52,7 @@
 						<textarea data-ng-model="vm.recipe.ingredients" rows="20" placeholder="Put each ingredient on its own line." data-ng-list="&#10;" data-ng-trim="false"></textarea>
 					</md-input-container>
 				</div>
-				<div layout="column" flex="45">
+				<div layout="column" flex="50">
 					<md-input-container>
 						<label>Instructions</label>
 						<textarea data-ng-model="vm.recipe.instructions" rows="20" placeholder="Put each step on its own line." data-ng-list="&#10;" data-ng-trim="false"></textarea>
