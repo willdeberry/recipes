@@ -24,7 +24,7 @@
 				});
 			},
 			courses: function() {
-				return ['breakfast', 'appetizer', 'lunch', 'dinner', 'dessert'];
+				return ['Breakfast', 'Appetizer', 'Lunch', 'Dinner', 'Dessert'];
 			}
 		}
 	}
